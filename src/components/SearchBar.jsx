@@ -1,40 +1,39 @@
-import React, {useState, useEffect} from "react";
-import "./SearchBar.css"
+import React, { useState } from "react";
+import "./SearchBar.css";
 import { FaSearch } from "react-icons/fa";
 
+const SearchBar = ({ setResults }) => {
+  const [searchCountry, setSearchCountry] = useState("");
 
-const SearchBar = ({setResults}) => {
-  const [searchCountry, setSearchCountry] = useState('')
-
-
-  const fetchData = (value) => {
-    fetch(`https://restcountries.com/v3.1/name/${value}`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data)
-      setResults(data)
-    })
-  }
-
-  const handleChange = (value) => {
-    setSearchCountry(value)
-    if (value.trim() !== "") {
-      fetchData(value)
-    } else {
-      setResults([])
+  const fetchData = () => {
+    if (searchCountry.trim() === "") {
+      setResults([]); // Clear results if input is empty
+      return;
     }
-}
+
+    fetch(`https://restcountries.com/v3.1/name/${searchCountry}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setResults(data); // Update results with fetched data
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setResults([]); // Clear results in case of an error
+      });
+  };
 
   return (
     <div className="input-wrapper">
-      <FaSearch id="search-icon"/>
+      <FaSearch id="search-icon" />
       <input
-      placeholder="Type country here ..."
-      value={searchCountry}
-      onChange={(e) => handleChange(e.target.value)}
+        placeholder="Type country here ..."
+        value={searchCountry}
+        onChange={(e) => setSearchCountry(e.target.value)}
       />
+      <button onClick={fetchData}>Search</button>
     </div>
-  )
-}
+  );
+};
 
 export default SearchBar;

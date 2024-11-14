@@ -5,8 +5,8 @@ const DestinationResults = ({ results }) => {
     <div className="results-list">
       {results.map((country, index) => (
         <div key={index}>
-          <h1>Country:</h1>
-          <h1>Population:</h1>
+          <h1>Country: {country.name.common}</h1>
+          <h1>Population: {country.population}</h1>
           <h1>Language Spoken:</h1>
         </div>
       ))}
