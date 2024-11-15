@@ -37,11 +37,16 @@
   }
 } */
 
-.search-bar-container{
-  padding-top: 20vh;
+.search-bar-container {
+  padding-top: 2vh;
   width: 40%;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.page-title {
+  text-align: center;
+  padding-top: 30px;
 }
