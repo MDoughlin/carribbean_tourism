@@ -11,11 +11,12 @@ const SearchBar = ({ setResults }) => {
       return;
     }
 
+    // Fetch data from the REST Countries API
     fetch(`https://restcountries.com/v3.1/name/${searchCountry}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setResults(data); // Update results with fetched data
+        setResults(data); // Update results with fetched data from countries API
       })
       .catch((error) => {
         console.error("Error fetching data:", error);

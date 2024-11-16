@@ -9,6 +9,20 @@
   max-height: 300px;
 }
 
+.result-item {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: background-color 0.2s;
+}
+
+.result-item:hover {
+  background-color: #eaeaea;
+}
+
 .parent-container {
   display: flex;
   gap: 20px;
