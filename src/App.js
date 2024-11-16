@@ -13,7 +13,7 @@ function App() {
       <div className="search-bar-container">
         <SearchBar setResults={setResults} />
         <DestinationResults results={results} />
-        {/* <Attractions /> */}
+        <Attractions />
       </div>
     </div>
   );
