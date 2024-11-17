@@ -7,7 +7,7 @@ const SearchBar = ({ setResults }) => {
 
   const fetchData = () => {
     if (searchCountry.trim() === "") {
-      setResults([]); // Clear results if input is empty
+      setResults([]);
       return;
     }
 
